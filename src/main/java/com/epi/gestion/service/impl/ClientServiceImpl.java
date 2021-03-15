@@ -4,11 +4,12 @@ import com.epi.gestion.dao.IClientDao;
 import com.epi.gestion.dao.entity.Client;
 import com.epi.gestion.service.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
-
+@Service("clientService")
 public class ClientServiceImpl implements IClientService {
 
     @Autowired

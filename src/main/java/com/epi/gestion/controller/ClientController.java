@@ -3,16 +3,15 @@ package com.epi.gestion.controller;
 
 import com.epi.gestion.dao.entity.Client;
 import com.epi.gestion.service.IClientService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 @RestController
 @RequestMapping("/client")
 public class ClientController {
-
+    @Autowired
     private IClientService clientService;
 
     @GetMapping("/")
@@ -21,22 +20,22 @@ public class ClientController {
 
     }
     @GetMapping("/find")
-    public Client getClient(Long id){
+    public Client getClient(@RequestParam Long id){
         return  clientService.findById(id);
 
     }
-    @GetMapping("/add")
-    public Client addClient(Client client){
+    @PostMapping("/add")
+    public Client addClient(@RequestBody Client client){
         return  clientService.add(client);
 
     }
-    @GetMapping("/remove")
-    public boolean deleteClient(Long id){
+    @DeleteMapping("/remove")
+    public boolean deleteClient(@RequestBody Long id){
         return  clientService.deleteById(id);
 
     }
-    @GetMapping("/update")
-    public boolean updateClient(Client client){
+    @PutMapping ("/update")
+    public boolean updateClient(@RequestBody Client client){
         return  clientService.update(client);
 
     }

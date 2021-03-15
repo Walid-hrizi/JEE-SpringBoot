@@ -20,6 +20,6 @@ public class Client {
     private String nom;
     private String telephone;
 
-    @Column(name = "matricule_fiscaleeees", unique = true,length = 100)
+    @Column(name = "matricule_fiscale", unique = true,length = 100)
     private String matriculeFiscale;
 }
