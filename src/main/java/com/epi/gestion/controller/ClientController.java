@@ -30,7 +30,7 @@ public class ClientController {
 
     }
     @DeleteMapping("/remove")
-    public boolean deleteClient(@RequestBody Long id){
+    public boolean deleteClient(@RequestParam Long id){
         return  clientService.deleteById(id);
 
     }
